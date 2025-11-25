@@ -1,0 +1,18 @@
+select
+  to_timestamp("TIME") as weather_datetime,
+  postal_code,
+  country_english as country,
+  latitude,
+  longitude,
+  temperature_2m_c,
+  wind_speed_10m_m_s as wind_speed_10m_mps,
+  wind_speed_80m_m_s as wind_speed_80m_mps,
+  shortwave_radiation_w_m2 as shortwave_radiation_wpm2,
+  direct_radiation_w_m2 as direct_radiation_wpm2,
+  diffuse_radiation_w_m2 as diffuse_radiation_wpm2,
+  precipitation_mm,
+  cloudcover as cloud_cover_percent,
+  pressure_msl_hpa,
+  rain_mm,
+  snowfall_cm
+from {{ source('meteostat', 'dim_weather') }}

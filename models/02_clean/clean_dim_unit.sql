@@ -1,0 +1,21 @@
+select
+  powergenerationunitid as power_generation_unit_id,
+  unitname as unit_name,
+  operator as unit_operator,
+  unitstreet as unit_street,
+  unithousenumber as unit_house_number,
+  unitpostalcode as unit_postal_code,
+  unitcity as unit_city,
+  unitstate as unit_state,
+  energysource as energy_source,
+  isstorage as is_storage,
+  voltagelevel as voltage_level,
+  plantstatus as plant_status,
+  commissioningyear as commissioning_year,
+  decommissioningyear as decommissioning_year,
+  grosscapacitymw as gross_capacity_mw,
+  netelectricalcapacitymw as net_electrical_capacity_mw,
+  iscrossborderunit as is_cross_border_unit,
+  feedintype as feed_in_type,
+  gridoperator as grid_operator
+from {{ source('smard', 'dim_unit') }}
